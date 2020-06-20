@@ -4,7 +4,7 @@
   "description": "Compile a Cloudflare Workers script into a single file",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
-  "bin": "dist/index.js",
+  "bin": "dist/bin.js",
   "files": [
     "dist/"
   ],
