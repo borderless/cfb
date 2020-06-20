@@ -1,6 +1,6 @@
 {
   "name": "@borderless/cfb",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Compile a Cloudflare Workers script into a single file",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
