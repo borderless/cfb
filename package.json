@@ -1,0 +1,95 @@
+{
+  "name": "@borderless/cfb",
+  "version": "0.0.0",
+  "description": "Compile a Cloudflare Workers script into a single file",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "bin": "dist/index.js",
+  "files": [
+    "dist/"
+  ],
+  "scripts": {
+    "prettier": "prettier --write",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet --fix",
+    "format": "npm run prettier -- \"{,src/**/}*.{js,jsx,ts,tsx,json,css,md,yml,yaml}\"",
+    "build": "rimraf dist/ && tsc",
+    "specs": "jest --coverage",
+    "test": "npm run -s lint && npm run -s build && npm run -s specs",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/BorderlessLabs/cfb.git"
+  },
+  "keywords": [
+    "cloudflare",
+    "worker",
+    "build",
+    "bundle",
+    "cli",
+    "typescript"
+  ],
+  "author": {
+    "name": "Blake Embrey",
+    "email": "hello@blakeembrey.com",
+    "url": "http://blakeembrey.me"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BorderlessLabs/cfb/issues"
+  },
+  "homepage": "https://github.com/BorderlessLabs/cfb",
+  "jest": {
+    "roots": [
+      "<rootDir>/src/"
+    ],
+    "transform": {
+      "\\.tsx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,css,md,yml,yaml}": "npm run prettier"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "devDependencies": {
+    "@types/bytes": "^3.1.0",
+    "@types/jest": "^26.0.0",
+    "@types/node": "^14.0.1",
+    "@types/webpack": "^4.41.17",
+    "@typescript-eslint/eslint-plugin": "^3.2.0",
+    "@typescript-eslint/parser": "^3.2.0",
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "husky": "^4.2.3",
+    "jest": "^26.0.1",
+    "lint-staged": "^10.0.8",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^26.1.0",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "arg": "^4.1.3",
+    "bytes": "^3.1.0",
+    "webpack": "^4.43.0"
+  }
+}
