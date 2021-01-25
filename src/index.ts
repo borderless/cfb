@@ -17,7 +17,7 @@ export interface Options {
 /**
  * Simple build function for Cloudflare Worker scripts.
  */
-export function build({ entry, output, sourceMap, external }: Options) {
+export function build({ entry, output, sourceMap, external, define }: Options) {
   return esbuild.build({
     bundle: true,
     splitting: false,
@@ -29,6 +29,7 @@ export function build({ entry, output, sourceMap, external }: Options) {
     sourcemap: sourceMap,
     define: {
       "process.env.NODE_ENV": '"production"',
+      ...define,
     },
   });
 }
