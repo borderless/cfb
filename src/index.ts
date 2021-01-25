@@ -2,7 +2,6 @@
 
 import { resolve } from "path";
 import * as esbuild from "esbuild";
-import { ExternalsPlugin } from "webpack";
 
 const OUTPUT_FILENAME = "worker.js";
 
