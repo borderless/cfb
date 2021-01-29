@@ -87,7 +87,7 @@
     "typescript": "^3.7.4"
   },
   "dependencies": {
-    "arg": "^4.1.3",
+    "arg": "^5.0.0",
     "esbuild": "^0.8.0"
   }
 }
