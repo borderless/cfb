@@ -2,8 +2,8 @@
 
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][downloads-image]][downloads-url]
-[![Build status][travis-image]][travis-url]
-[![Test coverage][coveralls-image]][coveralls-url]
+[![Build status][build-image]][build-url]
+[![Build coverage][coverage-image]][coverage-url]
 
 > Compile a Cloudflare Workers script into a single file.
 
@@ -27,11 +27,11 @@ This project is written using [TypeScript](https://github.com/Microsoft/TypeScri
 
 MIT
 
-[npm-image]: https://img.shields.io/npm/v/@borderless/cfb.svg?style=flat
+[npm-image]: https://img.shields.io/npm/v/@borderless/cfb
 [npm-url]: https://npmjs.org/package/@borderless/cfb
-[downloads-image]: https://img.shields.io/npm/dm/@borderless/cfb.svg?style=flat
+[downloads-image]: https://img.shields.io/npm/dm/@borderless/cfb
 [downloads-url]: https://npmjs.org/package/@borderless/cfb
-[travis-image]: https://img.shields.io/travis/BorderlessLabs/cfb.svg?style=flat
-[travis-url]: https://travis-ci.org/BorderlessLabs/cfb
-[coveralls-image]: https://img.shields.io/coveralls/BorderlessLabs/cfb.svg?style=flat
-[coveralls-url]: https://coveralls.io/r/BorderlessLabs/cfb?branch=master
+[build-image]: https://img.shields.io/github/workflow/status/borderless/cfb/CI/main
+[build-url]: https://github.com/borderless/cfb/actions/workflows/ci.yml?query=branch%3Amain
+[coverage-image]: https://img.shields.io/codecov/c/gh/borderless/cfb
+[coverage-url]: https://codecov.io/gh/borderless/cfb
