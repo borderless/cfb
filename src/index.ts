@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { resolve } from "path";
 import * as esbuild from "esbuild";
 
