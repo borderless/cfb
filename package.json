@@ -1,26 +1,39 @@
 {
   "name": "@borderless/cfb",
   "version": "1.1.0",
-  "description": "Compile a Cloudflare Workers script into a single file",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "bin": "dist/bin.js",
-  "files": [
-    "dist/"
-  ],
-  "scripts": {
-    "prettier": "prettier --write",
-    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --quiet --fix",
-    "format": "npm run prettier -- \"{,src/**/}*.{js,jsx,ts,tsx,json,css,md,yml,yaml}\"",
-    "build": "rimraf dist/ && tsc",
-    "specs": "jest --coverage",
-    "test": "npm run -s lint && npm run -s build && npm run -s specs",
-    "prepare": "npm run build"
+  "publishConfig": {
+    "access": "public"
   },
+  "description": "Compile a Cloudflare Workers script into a single file",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/BorderlessLabs/cfb.git"
   },
+  "author": {
+    "name": "Blake Embrey",
+    "email": "hello@blakeembrey.com",
+    "url": "http://blakeembrey.me"
+  },
+  "homepage": "https://github.com/BorderlessLabs/cfb",
+  "bugs": {
+    "url": "https://github.com/BorderlessLabs/cfb/issues"
+  },
+  "main": "dist/index.js",
+  "bin": "dist/bin.js",
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "format": "ts-scripts format",
+    "lint": "ts-scripts lint",
+    "prepare": "ts-scripts install && ts-scripts build",
+    "specs": "ts-scripts specs",
+    "test": "ts-scripts test"
+  },
+  "files": [
+    "dist/"
+  ],
   "keywords": [
     "cloudflare",
     "worker",
@@ -29,65 +42,20 @@
     "cli",
     "typescript"
   ],
-  "author": {
-    "name": "Blake Embrey",
-    "email": "hello@blakeembrey.com",
-    "url": "http://blakeembrey.me"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/BorderlessLabs/cfb/issues"
-  },
-  "homepage": "https://github.com/BorderlessLabs/cfb",
-  "jest": {
-    "roots": [
-      "<rootDir>/src/"
-    ],
-    "transform": {
-      "\\.tsx?$": "ts-jest"
-    },
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,css,md,yml,yaml}": "npm run prettier"
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "engines": {
-    "node": ">=10"
-  },
-  "devDependencies": {
-    "@types/bytes": "^3.1.0",
-    "@types/jest": "^26.0.0",
-    "@types/node": "^14.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.14.1",
-    "@typescript-eslint/parser": "^4.14.1",
-    "eslint": "^7.0.0",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-prettier": "^3.1.2",
-    "husky": "^4.2.3",
-    "jest": "^26.0.1",
-    "lint-staged": "^10.0.8",
-    "prettier": "^2.0.5",
-    "rimraf": "^3.0.0",
-    "ts-jest": "^26.4.4",
-    "typescript": "^4.1.3"
-  },
   "dependencies": {
     "arg": "^5.0.0",
     "esbuild": "^0.8.0"
+  },
+  "devDependencies": {
+    "@borderless/ts-scripts": "^0.4.1",
+    "@types/jest": "^26.0.0",
+    "@types/node": "^14.0.1",
+    "typescript": "^4.2.4"
+  },
+  "typings": "dist/index.d.ts",
+  "ts-scripts": {
+    "project": [
+      "tsconfig.build.json"
+    ]
   }
 }
