@@ -11,8 +11,12 @@ export interface Options {
   external?: string[];
   define?: Record<string, string>;
   mainFields?: string[];
-  loader?: Record<string, esbuild.Loader>;
+  loader?: Record<
+    string,
+    "js" | "jsx" | "ts" | "tsx" | "json" | "text" | "base64" | "binary"
+  >;
   inject?: string[];
+  format?: "iife" | "esm";
 }
 
 /**
@@ -22,7 +26,7 @@ export function build(options: Options) {
   return esbuild.build({
     bundle: true,
     splitting: false,
-    format: "esm",
+    format: options.format ?? "iife",
     minify: options.minify ?? true,
     platform: "browser",
     entryPoints: options.entry,
