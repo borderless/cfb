@@ -4,23 +4,38 @@ import arg from "arg";
 import { build } from "./index";
 
 const {
-  "--entry": entry = "index.js",
+  "--define": define,
+  "--entry": entry = ["index.js"],
+  "--external": external,
+  "--inject": inject,
+  "--main-field": mainFields,
+  "--minify": minify,
   "--output": output = "bundle",
   "--source-map": sourceMap,
-  "--define": define = {},
-  "--external": external = [],
 } = arg({
-  "--entry": String,
+  "--define": defineArgs,
+  "--entry": [String],
+  "--external": [String],
+  "--inject": [String],
+  "--main-field": [String],
+  "--minify": Boolean,
   "--output": String,
   "--source-map": Boolean,
-  "--define": defineArgs,
-  "--external": [String],
   "-e": "--entry",
   "-o": "--output",
   "-s": "--source-map",
 });
 
-build({ entry, output, sourceMap, external, define }).then(
+build({
+  entry,
+  output,
+  sourceMap,
+  external,
+  define,
+  mainFields,
+  minify,
+  inject,
+}).then(
   (stats) => {
     for (const warning of stats.warnings) {
       let message = warning.text;
