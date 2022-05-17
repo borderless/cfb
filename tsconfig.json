@@ -1,10 +1,9 @@
 {
   "extends": "@borderless/ts-scripts/configs/tsconfig.json",
   "compilerOptions": {
-    "module": "CommonJS",
     "outDir": "dist",
     "rootDir": "src",
-    "types": ["node", "jest"]
+    "types": ["node"]
   },
   "include": ["./src/**/*"]
 }
